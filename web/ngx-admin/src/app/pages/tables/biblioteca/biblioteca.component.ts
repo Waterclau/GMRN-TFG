@@ -485,3 +485,4 @@ export class FsIconComponent {
     return this.kind === 'dir';
   }
 }
+
