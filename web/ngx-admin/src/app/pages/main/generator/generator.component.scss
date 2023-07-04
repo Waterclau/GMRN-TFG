@@ -1,0 +1,43 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  nb-progress-bar {
+    flex: 1;
+    margin: 0 1rem;
+  }
+}
+
+
+.flex-centered {
+  margin: auto;
+}
+nb-card-body {
+  display: flex;
+}
+
+.title {
+  text-align: center;
+}
+
+.sub-title {
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+.home-button {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.highlight-text {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.highlight-text:hover {
+  color: yellow;
+}

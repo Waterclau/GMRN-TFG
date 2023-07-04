@@ -1,0 +1,37 @@
+<nb-layout-column _ngcontent-npv-c254="">
+    <nb-card-body _ngcontent-npv-c254="">
+      <nb-auth-block _ngcontent-npv-c254="" _nghost-npv-c253="">
+        <router-outlet _ngcontent-npv-c254="">
+        </router-outlet><nb-login>
+          <h1 id="title" class="title">Login</h1>
+          <p class="sub-title">Hello! Log in with your username.</p>
+  <form novalidate="" aria-labelledby="title" class="ng-pristine ng-invalid ng-touched">
+    <div class="form-control-group">
+      <label for="input-username" class="label">Username:</label>
+      <input nbinput="" fullwidth="" name="username" id="input-username" pattern=".+@.+\..+" placeholder="Username" fieldsize="large" autofocus="" ng-reflect-full-width="" ng-reflect-field-size="large" ng-reflect-pattern=".+@.+\..+" ng-reflect-name="username" ng-reflect-status="basic" ng-reflect-required="true" class="input-full-width size-large status-basic shape-rectangle ng-pristine ng-invalid nb-transition ng-touched" required="" aria-invalid="true">
+    </div>
+    <div class="form-control-group">
+      <span class="label-with-link">
+        <label for="input-password" class="label">Password:</label>
+        <a routerlink="../request-password" class="forgot-password caption-2" ng-reflect-router-link="../request-password" href="/auth/request-password">Forgot Password?</a>
+      </span>
+      <input nbinput="" fullwidth="" name="password" type="password" id="input-password" placeholder="Password" fieldsize="large" ng-reflect-full-width="" ng-reflect-field-size="large" ng-reflect-name="password" ng-reflect-status="basic" ng-reflect-required="true" ng-reflect-minlength="4" ng-reflect-maxlength="50" class="input-full-width size-large status-basic shape-rectangle ng-untouched ng-pristine ng-invalid nb-transition" required="" minlength="4" maxlength="50">
+    </div>
+    <div class="form-control-group accept-group">
+      <nb-checkbox name="rememberMe" _nghost-npv-c155="" ng-reflect-name="rememberMe" class="status-basic ng-untouched ng-pristine ng-valid nb-transition">
+        <label _ngcontent-npv-c155="" class="label">
+          <input _ngcontent-npv-c155="" type="checkbox" class="native-input visually-hidden">
+          <span _ngcontent-npv-c155="" class="custom-checkbox">
+          </span>
+           <!--<span _ngcontent-npv-c155="" class="text">Remember me</span>-->
+        </label>
+      </nb-checkbox>
+    </div>
+    <div>
+      <button nbbutton="" fullwidth="" status="primary" size="large" (click)="login()" class="appearance-filled full-width size-large shape-rectangle status-primary nb-transition">Log In</button>
+    </div>
+    <div>
+      <div *ngIf="loginError" class="error-message">Usuario o contraseña erróneos. Inténtelo de nuevo.</div>
+    </div>
+  </form>
+</nb-login>  

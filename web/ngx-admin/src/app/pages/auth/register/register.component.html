@@ -1,0 +1,35 @@
+<nb-card-body _ngcontent-ubt-c254="">
+<nb-auth-block _ngcontent-ubt-c254="" _nghost-ubt-c253="">
+<router-outlet _ngcontent-ubt-c254=""></router-outlet>
+<nb-register _nghost-ubt-c256="" class="ng-star-inserted">
+<h1 _ngcontent-ubt-c256="" id="title" class="title">Register</h1>
+<form _ngcontent-ubt-c256="" novalidate="" aria-labelledby="title" class="ng-pristine ng-invalid ng-touched">
+<div _ngcontent-ubt-c256="" class="form-control-group">
+<label _ngcontent-ubt-c256="" for="input-username" class="label">Username</label>
+<input _ngcontent-ubt-c256="" nbinput="" id="input-username" name="username" placeholder="Username" autofocus="" fullwidth="" fieldsize="large" ng-reflect-full-width="" ng-reflect-field-size="large" ng-reflect-name="username" ng-reflect-status="basic" ng-reflect-required="false" ng-reflect-minlength="4" ng-reflect-maxlength="50" class="input-full-width size-large status-basic shape-rectangle ng-pristine ng-valid nb-transition ng-touched" minlength="4" maxlength="50">
+</div>
+<div _ngcontent-ubt-c256="" class="form-control-group"><label _ngcontent-ubt-c256="" for="input-password" class="label">Password:</label>
+<input _ngcontent-ubt-c256="" nbinput="" type="password" id="input-password" name="password" placeholder="Password" fullwidth="" fieldsize="large" ng-reflect-full-width="" ng-reflect-field-size="large" ng-reflect-name="password" ng-reflect-status="basic" ng-reflect-required="true" ng-reflect-minlength="4" ng-reflect-maxlength="50" class="input-full-width size-large status-basic shape-rectangle ng-untouched ng-pristine ng-invalid nb-transition" required="" minlength="4" maxlength="50">
+</div>
+<div _ngcontent-ubt-c256="" class="form-control-group">
+<label _ngcontent-ubt-c256="" for="input-re-password" class="label">Repeat password:</label>
+<input _ngcontent-ubt-c256="" nbinput="" type="password" id="input-re-password" name="rePass" placeholder="Confirm Password" fullwidth="" fieldsize="large" ng-reflect-full-width="" ng-reflect-field-size="large" ng-reflect-name="rePass" ng-reflect-status="basic" ng-reflect-required="true" class="input-full-width size-large status-basic shape-rectangle ng-untouched ng-pristine ng-invalid nb-transition" required="">
+</div>
+<div _ngcontent-ubt-c256="" class="form-control-group accept-group ng-star-inserted">
+<nb-checkbox _ngcontent-ubt-c256="" name="terms" _nghost-ubt-c155="" ng-reflect-name="terms" ng-reflect-required="true" class="status-basic ng-untouched ng-pristine ng-invalid nb-transition" required="">
+<label _ngcontent-ubt-c155="" class="label">
+<input _ngcontent-ubt-c155="" type="checkbox" class="native-input visually-hidden">
+<span _ngcontent-ubt-c155="" class="custom-checkbox">
+</span>
+<span _ngcontent-ubt-c155="" class="text"> Agree to <a _ngcontent-ubt-c256="" href="#" target="_blank"><strong _ngcontent-ubt-c256="">Terms &amp; Conditions</strong></a></span>
+</label>
+</nb-checkbox>
+</div>
+<button nbbutton="" fullwidth="" status="primary" size="large" (click)="register()"  class="appearance-filled full-width size-large shape-rectangle status-primary nb-transition">Register</button>
+<div>
+    <div *ngIf="registerError" class="error-message">Nombre de usuario o contraseña no disponibles</div>
+</div>
+<div>
+    <div *ngIf="repassError" class="error-message">La doble contraseña es distinta</div>
+</div>
+<section _ngcontent-ubt-c256="" aria-label="Sign in" class="another-action"> Already have an account? <a _ngcontent-ubt-c256="" routerlink="../login" class="text-link" ng-reflect-router-link="../login" (click)="goToLogin()" href="/auth/login">Log in</a></section>

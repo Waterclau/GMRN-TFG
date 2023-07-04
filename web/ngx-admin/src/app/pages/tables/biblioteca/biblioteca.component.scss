@@ -1,0 +1,135 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  button[nbTreeGridRowToggle] {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .search-label {
+    display: block;
+  }
+  .search-input {
+    margin-bottom: 1rem;
+  }
+
+  .nb-column-name {
+    width: 100%;
+  }
+
+  ::ng-deep .row-toggle-button {
+    color: nb-theme(text-basic-color);
+  }
+
+  .nb-tree-grid-header-cell,
+  .nb-tree-grid-header-cell button {
+    text-transform: capitalize;
+  }
+
+  @media screen and (min-width: 400px) {
+    .nb-column-name,
+    .nb-column-size {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .nb-column-name,
+    .nb-column-size,
+    .nb-column-kind {
+      width: 33.333%;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .nb-column-name {
+      width: 31%;
+    }
+    .nb-column-size,
+    .nb-column-kind,
+    .nb-column-items {
+      width: 23%;
+    }
+  }
+}
+section.another-action {
+  margin-top: 20px; /* Espacio superior */
+  text-align: center; /* Centrar el contenido */
+}
+
+.section-message {
+  margin-bottom: 10px; /* Espacio inferior */
+}
+::ng-deep {
+  .archive-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+.archive-button {
+  background-color: green;
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  max-width: 600px; /* Ajusta el valor según tus necesidades */
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.container .row {
+  width: 100%;
+}
+
+.container .col-md-6 {
+  max-width: 600px; /* Ajusta el valor según tus necesidades */
+}
+
+.nb-card {
+  margin-top: 20px;
+}
+/*.custom-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*.custom-button button {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}*/
+
+::ng-deep {
+  .custom-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+.custom-button {
+  background-color: blue;
+  color: white;
+}
+
+
+
+

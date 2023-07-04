@@ -1,0 +1,113 @@
+<nb-card>
+  <nb-card-body>
+
+    <label class="search-label" for="search">Buscador:</label>
+    <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input" placeholder="Usuario, titulo o id" style="color: white;">
+
+
+    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+
+      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+      <ng-container [nbTreeGridColumnDef]="customColumn">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+          {{customColumn}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon>
+          {{row.data[customColumn]}}
+        </td>
+      </ng-container>
+
+      <ng-container *ngFor="let column of defaultColumns; let index = index" [nbTreeGridColumnDef]="column"
+                     [showOn]="getShowOn(index)">
+        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+          {{column}}
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+          <!-- Añadir botón a la columna "archive" si row.level != 0 -->
+          <ng-container *ngIf="column === 'archive' && row.level !== 0">
+            <button nbButton class="archive-button" (click)="selectDownload(row)">Archive</button>
+          </ng-container>
+          <!-- Mostrar contenido de las demás columnas -->
+          <ng-container *ngIf="column !== 'archive'">
+            {{row.data[column] || '-'}}
+          </ng-container>
+        </td>
+        
+      </ng-container>
+
+    </table>
+    <section _ngcontent-ubt-c256="" aria-label="Sign in" class="another-action" *ngIf="cancionGenerada && !user">
+      Ningún registro generado.
+      <a _ngcontent-ubt-c256="" routerLink="../login" class="text-link" ng-reflect-router-link="../login"
+         (click)="goToLogin()" href="/auth/login">
+        Inicia sesión
+      </a>
+      para acceder a tu biblioteca
+    </section>
+
+    <ng-container *ngIf="downloadChart">
+      <div class="container mt-2">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <nb-card>
+              <nb-card-header>Opciones de descarga</nb-card-header>
+              <nb-card-body>
+                <form>
+                  <div class="form-group row">
+                    <label for="inputPassword2" class="label col-sm-3 col-form-label">Titulo</label>
+                    <div class="col-sm-9">
+                      <input nbInput fullWidth id="inputPassword2" [placeholder]="selectedRow.nombre" [ngModel]="inputValue" (ngModelChange)="inputValue = $event">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 label">Formatos</label>
+                    <div class="col-sm-9">
+                      <nb-radio-group >
+                        <nb-radio value="midi" (click)="downloadFormat = 'midi'" checked>Midi</nb-radio>
+                        <nb-radio value="wav" (click)="downloadFormat = 'wav'">Wav</nb-radio>
+                        <nb-radio value="mp3" (click)="downloadFormat = 'mp3'">Mp3</nb-radio>
+                        <nb-radio value="flac" (click)="downloadFormat = 'flac'">Flac</nb-radio>
+                      </nb-radio-group>
+                    </div>
+                  </div>                  
+                 <!-- <div class="form-group row">
+                    <div class="offset-sm-3 col-sm-9">
+                      <button nbButton status="primary" (click)="downloadSong($event)">Download</button>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-3 col-sm-9">
+                      <button nbButton status="primary" (click)="convertirMIDIaWAV($event)">Wav</button>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="offset-sm-3 col-sm-9">
+                      <button nbButton status="primary" (click)="convertirMIDIaMP3($event)">MP3</button>
+                    </div>
+                  </div>-->
+                  <div class="form-group row">
+                    <div class="offset-sm-3 col-sm-9">
+                      <button class="custom-button" (click)="downloading($event)">Download</button>
+                    </div>
+                  </div>
+                  <div class="form-group row" *ngIf="descargaLoading">
+                    <div class="offset-sm-3 col-sm-9">
+                      <p>Convirtiendo archivo, espere hasta que finalice la descarga</p>
+                    </div>
+                  </div>                  
+                </form>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    
+
+
+  </nb-card-body>
+</nb-card>
