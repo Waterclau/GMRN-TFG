@@ -152,8 +152,7 @@ export class BibliotecaComponent implements OnInit {
             const contentDispositionHeader = response.headers.get('content-disposition');
             const filename = contentDispositionHeader ? contentDispositionHeader.split(';')[1].split('filename=')[1].trim() : this.inputValue + '.wav';
             const wavFile = new File([response.body], filename, { type: 'audio/wav' });
-            //this.downloadWAVFile(wavFile); // Descargar el archivo WAV
-            this.dw(event);
+            this.downloadWAVFile(wavFile); // Descargar el archivo WAV
           } else {
             console.log('Error al convertir el archivo MIDI a WAV');
           }
@@ -200,8 +199,7 @@ export class BibliotecaComponent implements OnInit {
             const contentDispositionHeader = response.headers.get('content-disposition');
             const filename = contentDispositionHeader ? contentDispositionHeader.split(';')[1].split('filename=')[1].trim() : this.inputValue + '.mp3';
             const mp3File = new File([response.body], filename, { type: 'audio/mp3' });
-            //this.downloadMP3File(mp3File); // Descargar el archivo mp3
-            this.dm(event);
+            this.downloadMP3File(mp3File); // Descargar el archivo mp3
           } else {
             console.log('Error al convertir el archivo MIDI a WAV');
           }
@@ -240,8 +238,7 @@ export class BibliotecaComponent implements OnInit {
             const contentDispositionHeader = response.headers.get('content-disposition');
             const filename = contentDispositionHeader ? contentDispositionHeader.split(';')[1].split('filename=')[1].trim() : this.inputValue + '.flac';
             const flacFile = new File([response.body], filename, { type: 'audio/flac' });
-            //this.downloadFlacFile(flacFile); // Descargar el archivo flac
-            this.df(event);
+            this.downloadFlacFile(flacFile); // Descargar el archivo flac
           } else {
             console.log('Error al convertir el archivo MIDI a flac');
           }
@@ -270,80 +267,6 @@ export class BibliotecaComponent implements OnInit {
     a.click();
     URL.revokeObjectURL(a.href);
   }
-
-  dw(event: Event) {
-    event.preventDefault(); // Evitar la recarga de la página
-  
-    const filePath = 'assets/music/generated/one.wav';
-  
-    fetch(filePath)
-      .then(response => response.blob())
-      .then(blob => {
-        // Crear URL del blob
-        const url = URL.createObjectURL(blob);
-        // Crear elemento <a> para la descarga
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = this.selectedRow.nombre;//'one.mid';
-        // Simular clic en el enlace para iniciar la descarga
-        link.click();
-        // Liberar el objeto URL creado
-        URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('Error al descargar la canción:', error);
-      });
-  }
-
-  dm(event: Event) {
-    event.preventDefault(); // Evitar la recarga de la página
-  
-    const filePath = 'assets/music/generated/one.mp3';
-  
-    fetch(filePath)
-      .then(response => response.blob())
-      .then(blob => {
-        // Crear URL del blob
-        const url = URL.createObjectURL(blob);
-        // Crear elemento <a> para la descarga
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = this.selectedRow.nombre;//'one.mid';
-        // Simular clic en el enlace para iniciar la descarga
-        link.click();
-        // Liberar el objeto URL creado
-        URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('Error al descargar la canción:', error);
-      });
-  }
-
-  df(event: Event) {
-    event.preventDefault(); // Evitar la recarga de la página
-  
-    const filePath = 'assets/music/generated/one.flac';
-  
-    fetch(filePath)
-      .then(response => response.blob())
-      .then(blob => {
-        // Crear URL del blob
-        const url = URL.createObjectURL(blob);
-        // Crear elemento <a> para la descarga
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = this.selectedRow.nombre;//'one.mid';
-        // Simular clic en el enlace para iniciar la descarga
-        link.click();
-        // Liberar el objeto URL creado
-        URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('Error al descargar la canción:', error);
-      });
-  }
-  
-
 
   obtenerArchivoMIDI(): Promise<File> {
     const url = 'assets/music/generated/one.mid'; // Ruta relativa al archivo .mid en tu proyecto
