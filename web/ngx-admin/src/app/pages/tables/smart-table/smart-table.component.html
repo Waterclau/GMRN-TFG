@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header>
+    Canciones
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      <ng-template ng2-smart-table-tbody-cell-custom="delete" let-rowData="rowData" let-value="value" let-isInEditing="isInEditing" let-onSave="onSave" let-onCancel="onCancel">
+        <button nbButton shape="rectangle" status="danger" (click)="onDelete(rowData)">Eliminar</button>
+      </ng-template>
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,124 @@
+<div class="accordions-container row">
+  <div class="accordion-container col-md-12 col-lg-6 col-xxxl-6">
+    <nb-card>
+      <nb-card-header>Lista de canciones</nb-card-header>
+      <nb-card-body>
+        <nb-list>
+          <nb-list-item *ngFor="let fruit of fruits" class = "row show-grid">
+              <div class="col-12 col-md-8">
+                <div>{{fruit}}</div>
+              </div>
+              <div class="col-6 col-md-4 checkbox-radio">
+                <div class="demo-items">
+                  <nb-checkbox (change)="toggleSelection(fruit)">Descargar</nb-checkbox>
+                </div>              
+            </div>
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-accordion>
+      <nb-accordion-item #item>
+        <nb-accordion-item-header>
+          Detalles de la descarga
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <nb-card>
+            <nb-card-header>Checkboxes & Radios</nb-card-header>
+            <nb-card-body class="checkbox-radio">
+              <div class="demo-items">
+                <nb-checkbox>Checkbox 1</nb-checkbox>
+                <nb-checkbox checked>Checkbox 2</nb-checkbox>
+              </div>
+              <div class="demo-items">
+                <nb-radio-group [(value)]="radioGroupValue">
+                  <nb-radio
+                    [value]="'This is value 1'">
+                    Radio 1
+                  </nb-radio>
+                  <nb-radio
+                    [value]="'This is value 2'">
+                    Radio 2
+                  </nb-radio>
+                  <nb-radio
+                    [value]="'This is value 3'">
+                    Radio 3
+                  </nb-radio>
+                </nb-radio-group>
+              </div>
+              <div class="demo-items">
+                <nb-checkbox disabled>Disabled Checkbox</nb-checkbox>
+                <nb-radio-group disabled>
+                  <nb-radio
+                    [value]="'Disabled Value'">
+                    Disabled Radio
+                  </nb-radio>
+                </nb-radio-group>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Reviews
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Edit
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </div>
+
+  <div class="accordion-container col-md-12 col-lg-6 col-xxxl-6">
+    <nb-accordion multi>
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Product Details
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Reviews
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>
+          Edit
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
+          Originally, nebula was a name for any diffuse astronomical object,
+          including galaxies beyond the Milky Way.
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </div>
+</div>

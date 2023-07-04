@@ -1,0 +1,42 @@
+<div class="row" style="display: flex; flex-direction: column;">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-body>
+        <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
+          <h2 class="title">Generador de música</h2>
+          <small class="sub-title">Haz click sobre el botón para generar tu canción</small>
+          <button nbButton class="home-button" status="success" (click)="ejecutarModelo($event)" [nbSpinner]="loadingLargeGroup" nbSpinnerStatus="success" nbSpinnerMessage="" nbPopover="Ejecutando el programa" fullWidth>Generar</button>
+          <button nbButton fullWidth (click)="goToLibrary()" type="button" class="home-button">
+            Ir a la biblioteca
+          </button>
+          <div *ngIf="loginFirst" class="error-message">
+            <nb-alert status="info">
+              <strong>Heads up!</strong>
+              <strong><span class="highlight-text" (click)="goToLogin()"> Inicia sesión aquí</span> para acceder a tu biblioteca</strong> 
+            </nb-alert>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card class="mt-2" *ngIf="executing">
+      <nb-card-body>
+        <nb-progress-bar [value]="progressValue" [status]="progressBarColor" size="large">
+          {{ progressBarText }}
+        </nb-progress-bar>
+      </nb-card-body>
+    </nb-card>    
+    <nb-card class="mt-2" *ngIf="muestraGenerada">
+      <nb-card-body class="flex-centered">
+        <button nbButton status="success" nbTooltip="Play" nbTooltipPlacement="top" (click)="playAudio()">
+          <nb-icon icon="play-circle"></nb-icon>
+          Play
+        </button>
+        <span style="width: 10px;"></span>
+        <button nbButton status="danger" nbTooltip="Pause" nbTooltipPlacement="top" (click)="pauseAudio()">
+          <nb-icon icon="pause-circle"></nb-icon>
+          Pause
+        </button>
+      </nb-card-body>
+    </nb-card> 
+  </div>
+</div>
