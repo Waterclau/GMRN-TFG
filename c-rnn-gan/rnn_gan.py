@@ -910,7 +910,9 @@ def main(_):
             f.write('{} {} {}\n'.format(i, ' '.join(['{}'.format(stats[0][key].replace(' ', '_')) for key in stats_keys_string]), ' '.join(['{:.3f}'.format(sum([s[key] for s in stats])/float(len(stats))) for key in stats_keys])))
           print('Saved {}.'.format(filename))
 
-        """test_g_loss,test_d_loss = run_epoch(session, m, loader, 'test', tf.no_op(), tf.no_op())
+	      
+	# Gráficos test
+        test_g_loss,test_d_loss = run_epoch(session, m, loader, 'test', tf.no_op(), tf.no_op())
         print("Test loss G: %.3f, D: %.3f" %(test_g_loss, test_d_loss))
         if not os.path.exists(os.path.join(plots_dir, 'test-input.txt')):
           with open(os.path.join(plots_dir, 'test-input.txt'), 'w') as f:
@@ -919,7 +921,7 @@ def main(_):
           try:
             f.write('{} {:.4f} {:.3} {:.3f}\n'.format(i, m.lr.eval(), test_g_loss, test_d_loss))
           except:
-            f.write('{} {} {} {}\n'.format(i, m.lr.eval(), test_g_loss, test_d_loss))"""
+            f.write('{} {} {} {}\n'.format(i, m.lr.eval(), test_g_loss, test_d_loss))
       
         #Medicion de tiempos
         current_time = time.time()
@@ -941,7 +943,6 @@ def main(_):
           f.write(str(lista_tiempos_ejecucion[-1])+'\n')
           f.write('\n'.join(map(str, lista_tiempos_ejecucion[:-1]))+'\n')"""
 
-#aqui va lo de los test
           
         if do_exit:
           if FLAGS.call_after is not None:
